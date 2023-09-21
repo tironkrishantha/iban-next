@@ -52,7 +52,6 @@ const adminDashboard = () => {
       const columns = [
         { Header: 'ID', accessor: 'id' },
         { Header: 'Name', accessor: 'name' },
-        { Header: 'Age', accessor: 'age' },
         // Add more columns here
       ];
 
