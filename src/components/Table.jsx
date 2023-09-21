@@ -1,4 +1,5 @@
 import { useTable, usePagination } from 'react-table'
+import Button from './Button'
 
 const Table = ({ data, columns }) => {
     const {
@@ -24,36 +25,6 @@ const Table = ({ data, columns }) => {
 
     return (
         <>
-            <table {...getTableProps()} className="table">
-                <thead>
-                    {headerGroups.map(headerGroup => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
-                            {headerGroup.headers.map(column => (
-                                <th {...column.getHeaderProps()}>
-                                    {column.render('Header')}
-                                </th>
-                            ))}
-                        </tr>
-                    ))}
-                </thead>
-                <tbody {...getTableBodyProps()}>
-                    {page.map(row => {
-                        prepareRow(row)
-                        return (
-                            <tr {...row.getRowProps()}>
-                                {row.cells.map(cell => {
-                                    return (
-                                        <td {...cell.getCellProps()}>
-                                            {cell.render('Cell')}
-                                        </td>
-                                    )
-                                })}
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-
             <div class="relative overflow-x-auto">
                 <table
                     {...getTableProps()}
@@ -73,22 +44,13 @@ const Table = ({ data, columns }) => {
                         ))}
                     </thead>
                     <tbody {...getTableBodyProps()}>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th
-                                scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Apple MacBook Pro 17"
-                            </th>
-                            <td class="px-6 py-4">Silver</td>
-                        </tr>
-
                         {page.map(row => {
                         prepareRow(row)
                         return (
                             <tr {...row.getRowProps()} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 {row.cells.map(cell => {
                                     return (
-                                        <td {...cell.getCellProps()}>
+                                        <td {...cell.getCellProps()} className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
                                             {cell.render('Cell')}
                                         </td>
                                     )
@@ -101,21 +63,24 @@ const Table = ({ data, columns }) => {
             </div>
 
             <div className="pagination">
-                <button
+                <Button
                     onClick={() => previousPage()}
-                    disabled={!canPreviousPage}>
+                    disabled={!canPreviousPage}
+                    className='p-2'
+                    >
                     Previous
-                </button>
+                </Button>
                 <span>
                     Page{' '}
                     <strong>
                         {state.pageIndex + 1} of {pageOptions.length}
                     </strong>{' '}
                 </span>
-                <button onClick={() => nextPage()} disabled={!canNextPage}>
+                <Button onClick={() => nextPage()} disabled={!canNextPage}>
                     Next
-                </button>
+                </Button>
             </div>
+
         </>
     )
 }
