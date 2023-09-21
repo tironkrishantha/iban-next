@@ -20,24 +20,17 @@ const Navigation = ({ user }) => {
     return (
         <nav className="bg-white border-b border-gray-100">
             {/* Primary Navigation Menu */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                 <div className="flex justify-between h-16">
                     <div className="flex">
                         {/* Logo */}
                         <div className="flex-shrink-0 flex items-center">
                             <Link href="/dashboard">
-                                <ApplicationLogo className="block h-10 w-auto fill-current text-gray-600" />
+                                <h4>IMBA</h4>
                             </Link>
                         </div>
 
-                        {/* Navigation Links */}
-                        <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <NavLink
-                                href="/dashboard"
-                                active={router.pathname === '/dashboard'}>
-                                Dashboard
-                            </NavLink>
-                        </div>
+                       
                     </div>
 
                     {/* Settings Dropdown */}
@@ -71,7 +64,7 @@ const Navigation = ({ user }) => {
                     </div>
 
                     {/* Hamburger */}
-                    <div className="-mr-2 flex items-center sm:hidden">
+                    {/* <div className="-mr-2 flex items-center sm:hidden">
                         <button
                             onClick={() => setOpen(open => !open)}
                             className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
@@ -99,20 +92,14 @@ const Navigation = ({ user }) => {
                                 )}
                             </svg>
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
             {/* Responsive Navigation Menu */}
             {open && (
                 <div className="block sm:hidden">
-                    <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink
-                            href="/dashboard"
-                            active={router.pathname === '/dashboard'}>
-                            Dashboard
-                        </ResponsiveNavLink>
-                    </div>
+                    
 
                     {/* Responsive Settings Options */}
                     <div className="pt-4 pb-1 border-t border-gray-200">

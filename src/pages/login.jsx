@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import Layout from '@/Layout'
 
 const Login = () => {
     const router = useRouter()
@@ -47,12 +48,7 @@ const Login = () => {
 
     return (
         <GuestLayout>
-            <AuthCard
-                logo={
-                    <Link href="/">
-                        <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
-                    </Link>
-                }>
+            <Layout>
                 {/* Session Status */}
                 <AuthSessionStatus className="mb-4" status={status} />
 
@@ -125,7 +121,7 @@ const Login = () => {
                         <Button className="ml-3">Login</Button>
                     </div>
                 </form>
-            </AuthCard>
+            </Layout>
         </GuestLayout>
     )
 }
